@@ -22,11 +22,20 @@ var DRIVY = DRIVY || {};
     var end = document.querySelector('.end').value;
     var distance = document.querySelector('.distance').value;
     var option = document.querySelector('.option').checked;
-
+    console.log(option);
     var actors = DRIVY.payActors(car, begin, end, distance, option);
+
+    $("#rental").hide(1000,function(){
+    $("#actors").show(1000);});
 
     render(actors);
 
     return;
   });
 }());
+
+function step1(){
+  $("#car").hide(1000,function(){
+  $("#rental").show(1000);
+});
+}

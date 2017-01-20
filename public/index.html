@@ -1,33 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>CSS/HTML Workshop with Drivy</title>
-  </head>
-  <body>
-    <div id="car">
-      <input class="model" type="text" placeholder="Car model"/>
-      <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Text input love</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styleForm.css" >
+  <link rel="stylesheet" type="text/css" href="css/style.css" >
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div class="corp">
+<div class="row" id="car">
+  <H1>Car Informations</H1>
+  <span>
+    <input class="gate model" type="text" placeholder="Model" /><label for="model">Model</label>
+  </span></br>
+  <span>
+    <input class="gate price-by-day" type="number" placeholder="Price by day" /><label for="price-by-day">Price by day</label>
+  </span></br>
+  <span>
+    <input class="gate price-by-km"  type="number" placeholder="Price by km" /><label for="price-by-km">Price by km</label>
+  </span></br>
+  <button class="bNext" id="simulate" onclick="step1()">Next</button>
+</div>
+<div class="row" id="rental">
+  <H1>Rental Informations</H1>
+  <span>
+    <input class="gate begin" type="date" placeholder="Rental begin date" /><label for="begin">Begin</label>
+  </span></br>
+  <span>
+    <input class="gate end" type="date" placeholder="Rental end date" /><label for="end">End</label>
+  </span></br>
+  <span>
+    <input class="gate distance"  type="number" placeholder="Distance in KM" /><label for="distance">Distance</label>
+  </span></br>
+  <div class="slideThree">
+  <input class="option" id="slideThree" name="check" type="checkbox" value="None"/><label for="option"></label>
+</div>
+  <button  class="bNext" id="compute" >Compute</button>
+</div>
+<div class="row" id="actors"></div>
+</div>
+
+<script id="template" type="x-tmpl-mustache">
+<H1>Compute</H1>
+<table>
+<tr>
+  <th>who</th>
+  <th>type</th>
+  <th>amount</th>
+</tr>
+  {{#actors}}
+    <div class="actor">
+    <tr>
+      <th>{{who}}</th>
+      <th>{{type}}</th>
+      <th>{{amount}}</th>
+    </tr>
     </div>
-    <div id="rental">
-      <input class="begin" type="date" placeholder="Rental begin date"/>
-      <input class="end" type="date" placeholder="Rental end date"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
-    <script id="template" type="x-tmpl-mustache">
-      {{#actors}}
-        <div class="actor">
-          <span>{{who}}</span>
-          <span>{{type}}</span>
-          <span>{{amount}}</span>
-        </div>
-      {{/actors}}
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
-    <script src="drivy.js"></script>
-    <script src="index.js"></script>
-  </body>
+  {{/actors}}
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+<script src="drivy.js"></script>
+<script src="index.js"></script>
+</body>
 </html>
